@@ -14,5 +14,5 @@ export default function Cart() {
         <div className="price">$0</div>
       </section>
     </section>
-    )
+  )
 }
