@@ -1,4 +1,4 @@
-export default function StepTwo() {
+export default function StepTwo({step}) {
   return (
     <section className="form-container col col-12">
       <form className="col col-121" data-phase="shipping">

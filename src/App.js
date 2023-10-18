@@ -1,8 +1,11 @@
 import StepProgress from "./components/StepProgress";
 import ProgressControl from "./components/ProgressControl";
 import Cart from "./components/Cart/Cart";
+import { useState } from "react";
 
 function App() {
+  const [step, setStep] = useState(1)
+
   return (
     <>
       <div id="svg-icons-container" style={{ display: "none" }} />
@@ -86,11 +89,11 @@ function App() {
         <div className="main-container">
           {/* register **/}
           {/* 結帳 */}
-          <StepProgress />
+          <StepProgress step={step}/>
           {/* cart */}
           <Cart />
           {/* progress-control */}
-          <ProgressControl />
+          <ProgressControl step={step} setStep={setStep}/>
         </div>
       </main>
       {/* footer */}

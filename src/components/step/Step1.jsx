@@ -31,7 +31,7 @@ const cityData = [
   { id: 29, value: 'LNN', city: '連江縣' } 
 ];
 
-export default function StepOne() {
+export default function StepOne({stpe}) {
   return (
     <section className="form-container col col-12">
       <form className="col col-12" data-phase="address">
@@ -71,7 +71,7 @@ export default function StepOne() {
               <div className="select-container">
                 <select required="">
                   {cityData.map(data => {
-                    return <option value={data.value}>{data.city}</option>
+                    return <option key={data.id} value={data.value}> {data.city}</option>
                   })}
                 </select>
               </div>
