@@ -31,7 +31,7 @@ const cityData = [
   { id: 29, value: 'LNN', city: '連江縣' } 
 ];
 
-export default function StepOne({stpe}) {
+export default function StepOne() {
   return (
     <section className="form-container col col-12">
       <form className="col col-12" data-phase="address">

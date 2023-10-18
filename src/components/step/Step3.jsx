@@ -1,4 +1,4 @@
-export default function StepThree({step}) {
+export default function StepThree() {
   return (
     <section className="form-container col col-12">
       <form className="col col-12" data-phase="credit-card">
