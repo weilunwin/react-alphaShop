@@ -1,3 +1,36 @@
+const cityData = [
+  { id: 0, value: '', city: '請選擇縣市' },
+  { id: 1, value: 'KLU', city: '基隆市' },
+  { id: 2, value: 'TPH', city: '新北市' },
+  { id: 3, value: 'TPE', city: '臺北市' },
+  { id: 4, value: 'TYC', city: '桃園市' },
+  { id: 5, value: 'HSH', city: '新竹縣' },
+  { id: 6, value: 'HSC', city: '新竹市' },
+  { id: 7, value: 'MAC', city: '苗栗市' },
+  { id: 8, value: 'MAL', city: '苗栗縣' },
+  { id: 9, value: 'TXG', city: '臺中市' },
+  { id: 10, value: 'CWH', city: '彰化縣' },
+  { id: 11, value: 'CWS', city: '彰化市' },
+  { id: 12, value: 'NTC', city: '南投市' },
+  { id: 13, value: 'NTO', city: '南投縣' },
+  { id: 14, value: 'YLH', city: '雲林縣' },
+  { id: 15, value: 'CHY', city: '嘉義縣' },
+  { id: 16, value: 'CYI', city: '嘉義市' },
+  { id: 17, value: 'TNN', city: '臺南市' },
+  { id: 18, value: 'KHH', city: '高雄市' },
+  { id: 19, value: 'IUH', city: '屏東縣' },
+  { id: 20, value: 'PTS', city: '屏東市' },
+  { id: 21, value: 'ILN', city: '宜蘭縣' },
+  { id: 22, value: 'ILC', city: '宜蘭市' },
+  { id: 23, value: 'HWA', city: '花蓮縣' },
+  { id: 24, value: 'HWC', city: '花蓮市' },
+  { id: 25, value: 'TTC', city: '臺東市' },
+  { id: 26, value: 'TTT', city: '臺東縣' },
+  { id: 27, value: 'PEH', city: '澎湖縣' },
+  { id: 28, value: 'KMN', city: '金門縣' },
+  { id: 29, value: 'LNN', city: '連江縣' } 
+];
+
 export default function StepOne() {
   return (
     <section className="form-container col col-12">
@@ -37,36 +70,9 @@ export default function StepOne() {
               <div className="input-label">縣市</div>
               <div className="select-container">
                 <select required="">
-                  <option value="">請選擇縣市</option>
-                  <option value="KLU">基隆市</option>
-                  <option value="TPH">新北市</option>
-                  <option value="TPE">臺北市</option>
-                  <option value="TYC">桃園市</option>
-                  <option value="HSH">新竹縣</option>
-                  <option value="HSC">新竹市</option>
-                  <option value="MAC">苗栗市</option>
-                  <option value="MAL">苗栗縣</option>
-                  <option value="TXG">臺中市</option>
-                  <option value="CWH">彰化縣</option>
-                  <option value="CWS">彰化市</option>
-                  <option value="NTC">南投市</option>
-                  <option value="NTO">南投縣</option>
-                  <option value="YLH">雲林縣</option>
-                  <option value="CHY">嘉義縣</option>
-                  <option value="CYI">嘉義市</option>
-                  <option value="TNN">臺南市</option>
-                  <option value="KHH">高雄市</option>
-                  <option value="IUH">屏東縣</option>
-                  <option value="PTS">屏東市</option>
-                  <option value="ILN">宜蘭縣</option>
-                  <option value="ILC">宜蘭市</option>
-                  <option value="HWA">花蓮縣</option>
-                  <option value="HWC">花蓮市</option>
-                  <option value="TTC">臺東市</option>
-                  <option value="TTT">臺東縣</option>
-                  <option value="PEH">澎湖縣</option>
-                  <option value="KMN">金門縣</option>
-                  <option value="LNN">連江縣</option>
+                  {cityData.map(data => {
+                    return <option value={data.value}>{data.city}</option>
+                  })}
                 </select>
               </div>
             </div>
