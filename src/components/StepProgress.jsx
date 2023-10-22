@@ -5,6 +5,7 @@ import pgComplete from '../icons/pgComplete.svg'
 
 
 export default function StepProgress({ step, setStep }) {
+
   return (
     <section className="register-container col col-lg-6 col-sm-12" data-phase={1} data-total-price={0}
     >
