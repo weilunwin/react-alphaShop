@@ -1,3 +1,5 @@
+import { PersonalDataInput } from "../../context/PersonalContext"
+
 export default function StepThree() {
   return (
     <section className="form-container col col-12">
@@ -7,23 +9,23 @@ export default function StepThree() {
           <div className="col col-12">
             <div className="input-group input-w-lg-4 input-w-sm-full">
               <div className="input-label">持卡人姓名</div>
-              <input type="text" placeholder="John Doe" />
+              <input type="text" placeholder="John Doe" name='Name' onChange={(e) => { PersonalDataInput(e)}}/>
             </div>
           </div>
           <div className="col col-12">
             <div className="input-group input-w-lg-4 input-w-sm-full">
               <div className="input-label">卡號</div>
-              <input type="text" placeholder="1111 2222 3333 4444" />
+              <input type="text" placeholder="1111 2222 3333 4444" name='CardNumber' onChange={(e) => { PersonalDataInput(e) }} />
             </div>
           </div>
           <div className="col col-12">
             <div className="input-group input-w-lg-3 input-w-sm-s3">
               <div className="input-label">有效期限</div>
-              <input type="text" placeholder="MM/YY" />
+              <input type="text" placeholder="MM/YY" name='Date' onChange={(e) => { PersonalDataInput(e) }} />
             </div>
             <div className="input-group input-w-lg-3 input-w-sm-s3">
               <div className="input-label">CVC / CCV</div>
-              <input type="text" placeholder={123} />
+              <input type="text" placeholder={123} name='Cvc' onChange={(e) => { PersonalDataInput(e) }} />
             </div>
           </div>
         </section>
