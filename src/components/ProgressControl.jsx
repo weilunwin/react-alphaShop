@@ -1,18 +1,33 @@
 import leftArrow from '../icons/leftArrow.svg'
 import rightArrow from '../icons/rightArrow.svg'
-import { useState } from 'react'
+import { useContext } from 'react'
+import { CartContext } from '../context/CartContext'
+import { PersonalData } from '../context/PersonalContext'
 
-export default function ProgressControl({step, setStep}) {
-  
-function AddressStep() {
-  function handleNext() {
-    if(step === 1){
-      setStep(2)
+
+
+
+export default function ProgressControl({ step, setStep }) {
+  const { total } = useContext(CartContext)
+  function chechClick() {
+    console.log(PersonalData)
+    alert(`已收到訂單，共${total}元，姓名：${PersonalData.Name}，卡號：${PersonalData.CardNumber}，卡片到期日：${PersonalData.Date}，CVC/CCV：${PersonalData.Cvc}`)
+  }
+
+  function nextClick() {
+    setStep(step + 1)
+  }
+
+  function prevClick() {
+    if (step > 0) {
+      setStep(step - 1)
     }
   }
+
+  function AddressStep() {
     return (
       <section className="button-group col col-12" data-step='1'>
-        <button className="next cursor-point" onClick={handleNext}>
+        <button className="next cursor-point" onClick={nextClick}>
           下一步
           <img className="cursor-point" src={rightArrow} alt='RIGHTARROW' />
         </button>
@@ -20,25 +35,14 @@ function AddressStep() {
     )
   }
 
- function ShippingStep() {
-   function goCreditCardStep() {
-     if (step === 2) {
-       setStep(3)
-     }
-   }
-
-   function goAddressStep(){
-    if(step === 2) {
-      setStep(1)
-    }
-   }
+  function ShippingStep() {
     return (
       <section className="button-group col col-12" data-step='2'>
-        <button className="prev cursor-point" onClick={goAddressStep}>
+        <button className="prev cursor-point" onClick={prevClick}>
           <img className="cursor-point" src={leftArrow} alt='LEFTARROW' />
           上一步
         </button>
-        <button className="next cursor-point" onClick={goCreditCardStep}>
+        <button className="next cursor-point" onClick={nextClick}>
           下一步
           <img className="cursor-point" src={rightArrow} alt='RIGHTARROW' />
         </button>
@@ -47,18 +51,13 @@ function AddressStep() {
   }
 
   function CreditCardStep() {
-    function goAddressStep() {
-      if (step === 3) {
-        setStep(2)
-      }
-    }
     return (
       <section className="button-group col col-12" data-step='3'>
-        <button className="prev cursor-point" onClick={goAddressStep}>
+        <button className="prev cursor-point" onClick={prevClick}>
           <img className="cursor-point" src={leftArrow} alt='LEFTARROW' />
           上一步
         </button>
-        <button className="next">確認下單</button>
+        <button className="next" onClick={chechClick}>確認下單</button>
       </section>
     )
   }
